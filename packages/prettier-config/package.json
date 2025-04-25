@@ -1,0 +1,19 @@
+{
+  "name": "@refer/prettier-config",
+  "version": "1.0.0",
+  "description": "Shared Prettier configuration",
+  "main": "index.js",
+  "license": "MIT",
+  "keywords": [
+    "prettier"
+  ],
+  "author": "monhan-97",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/monhan-97/refer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/monhan-97/refer.git/issues"
+  },
+  "packageManager": "pnpm@10.9.0"
+}
