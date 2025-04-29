@@ -1,4 +1,4 @@
-module.exports = {
+const prettierConfig = {
   printWidth: 100,
   semi: true,
   singleQuote: true,
@@ -9,3 +9,5 @@ module.exports = {
   jsxSingleQuote: true,
   arrowParens: "avoid",
 };
+
+export default prettierConfig;
