@@ -4,14 +4,14 @@
 Usage
 
 ```sh
-npm install @refer/prettier-config -D
+npm install @refer-utils/prettier-config -D
 ```
 
 Edit `package.json`:
 
 ```json
 {
-  "prettier": "@refer/prettier-config"
+  "prettier": "@refer-utils/prettier-config"
 }
 ```
 
