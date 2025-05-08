@@ -1,7 +1,5 @@
-/* eslint-disable import-x/no-unresolved */
 import tsEslintParser from '@typescript-eslint/parser';
 import tsEslintPlugin from '@typescript-eslint/eslint-plugin';
-/* eslint-enable import-x/no-unresolved */
 import importXESLintPlugin from 'eslint-plugin-import-x';
 import eslintPluginUnicorn from 'eslint-plugin-unicorn';
 import eslintConfigPrettier from 'eslint-config-prettier';
@@ -195,6 +193,7 @@ const baseConfig = {
     ],
     'import-x/no-extraneous-dependencies': 'off',
     'import-x/no-rename-default': 'off',
+    'import-x/default': 'off',
 
     // unicorn
     'unicorn/custom-error-definition': 'error',
@@ -281,6 +280,7 @@ const eslintBaseJSConfig = [
   commonConfig,
   importXESLintPlugin.flatConfigs.warnings,
   importXESLintPlugin.flatConfigs.errors,
+  importXESLintPlugin.flatConfigs.typescript,
   baseConfig,
 ];
 
