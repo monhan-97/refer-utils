@@ -1,7 +1,7 @@
 {
   "name": "@refer-utils/eslint-config",
   "description": "Shared eslint config for your project",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "type": "module",
   "keywords": [
@@ -22,7 +22,7 @@
   "bugs": {
     "url": "https://github.com/monhan-97/refer.git/issues"
   },
-  "devDependencies": {
+  "dependencies": {
     "@typescript-eslint/eslint-plugin": "^8.32.0",
     "@typescript-eslint/parser": "^8.32.0",
     "eslint-config-prettier": "^10.1.3",
