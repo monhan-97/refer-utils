@@ -1,6 +1,6 @@
 {
   "name": "@refer-utils/prettier-config",
-  "version": "2.0.1",
+  "version": "2.0.0",
   "description": "Shared Prettier configuration",
   "main": "index.js",
   "license": "MIT",

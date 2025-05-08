@@ -2,12 +2,12 @@ const prettierConfig = {
   printWidth: 100,
   semi: true,
   singleQuote: true,
-  trailingComma: "all",
-  htmlWhitespaceSensitivity: "strict",
-  endOfLine: "auto",
-  quoteProps: "as-needed",
+  trailingComma: 'all',
+  htmlWhitespaceSensitivity: 'strict',
+  endOfLine: 'auto',
+  quoteProps: 'as-needed',
   jsxSingleQuote: true,
-  arrowParens: "avoid",
+  arrowParens: 'avoid',
 };
 
 export default prettierConfig;
