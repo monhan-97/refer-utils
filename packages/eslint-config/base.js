@@ -1,3 +1,5 @@
+import { builtinModules } from 'node:module';
+
 import tsEslintParser from '@typescript-eslint/parser';
 import tsEslintPlugin from '@typescript-eslint/eslint-plugin';
 import importXESLintPlugin from 'eslint-plugin-import-x';
@@ -194,6 +196,7 @@ const baseConfig = {
     'import-x/no-extraneous-dependencies': 'off',
     'import-x/no-rename-default': 'off',
     'import-x/default': 'off',
+    'import-x/no-nodejs-modules': ['error', { allow: builtinModules.map(mod => `node:${mod}`) }],
 
     // unicorn
     'unicorn/custom-error-definition': 'error',
