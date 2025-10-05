@@ -2,29 +2,23 @@ import { builtinModules } from 'node:module';
 
 import tsEslintParser from '@typescript-eslint/parser';
 import tsEslintPlugin from '@typescript-eslint/eslint-plugin';
-import importXESLintPlugin from 'eslint-plugin-import-x';
+import { flatConfigs as importXFlagConfigs } from 'eslint-plugin-import-x';
 import eslintPluginUnicorn from 'eslint-plugin-unicorn';
 import eslintConfigPrettier from 'eslint-config-prettier';
 import globals from 'globals';
+// 'tsc' already handles this
+const conflictRules = (type = 'off') => {
+  return {
+    'no-unused-vars': type,
+    'default-case': type,
+    'no-dupe-class-members': type,
+    'no-undef': type,
+    'no-unused-expressions': type,
+  };
+};
 
 const commonConfig = {
   files: ['**/*.{ts,js,tsx}'],
-  languageOptions: {
-    parser: tsEslintParser,
-    parserOptions: {
-      ecmaVersion: 'latest',
-      sourceType: 'module',
-      ecmaFeatures: {
-        jsx: true,
-      },
-      warnOnUnsupportedTypeScriptVersion: true,
-    },
-    globals: { ...globals.node, ...globals.browser },
-  },
-};
-
-const baseConfig = {
-  files: ['**/*.{ts,js}'],
   ignores: [
     '.vscode/',
     '.idea/',
@@ -46,6 +40,18 @@ const baseConfig = {
   plugins: {
     unicorn: eslintPluginUnicorn,
     '@typescript-eslint': tsEslintPlugin,
+  },
+  languageOptions: {
+    parser: tsEslintParser,
+    parserOptions: {
+      ecmaVersion: 'latest',
+      sourceType: 'module',
+      ecmaFeatures: {
+        jsx: true,
+      },
+      warnOnUnsupportedTypeScriptVersion: true,
+    },
+    globals: { ...globals.node, ...globals.browser },
   },
   rules: {
     // best-practice
@@ -158,15 +164,7 @@ const baseConfig = {
     ],
     'getter-return': 'error',
 
-    // 'tsc' already handles this
-    'no-unused-vars': 'off',
-    // TypeScript's `noFallthroughCasesInSwitch` option is more robust (#6906)
-    'default-case': 'off',
-    // 'tsc' already handles this (https://github.com/typescript-eslint/typescript-eslint/issues/291)
-    'no-dupe-class-members': 'off',
-    // 'tsc' already handles this (https://github.com/typescript-eslint/typescript-eslint/issues/477)
-    'no-undef': 'off',
-    'no-unused-expressions': 'off',
+    ...conflictRules(),
 
     // import-x
     'import-x/first': 'error',
@@ -278,13 +276,20 @@ const baseConfig = {
   },
 };
 
+const specificJsConfig = {
+  files: ['**/*.js'],
+  rules: {
+    ...conflictRules('error'),
+  },
+};
+
 const eslintBaseJSConfig = [
   eslintConfigPrettier,
+  importXFlagConfigs.warnings,
+  importXFlagConfigs.errors,
+  importXFlagConfigs.typescript,
   commonConfig,
-  importXESLintPlugin.flatConfigs.warnings,
-  importXESLintPlugin.flatConfigs.errors,
-  importXESLintPlugin.flatConfigs.typescript,
-  baseConfig,
+  specificJsConfig,
 ];
 
 export default eslintBaseJSConfig;

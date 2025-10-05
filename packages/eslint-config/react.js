@@ -67,13 +67,10 @@ const reactESLintConfig = [
       'jsx-a11y/role-supports-aria-props': 'error',
       'jsx-a11y/scope': 'error',
 
-      // react-hooks
-      'react-hooks/rules-of-hooks': 'error',
-      'react-hooks/exhaustive-deps': 'error',
-
       ...reactRecommendedFlatConfig.rules,
       ...reactJsxRuntimeFlatConfig.rules,
     },
+    extends: ['react-hooks/recommended'],
   },
 ];
 

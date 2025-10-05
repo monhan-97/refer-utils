@@ -1,7 +1,7 @@
 {
   "name": "@refer-utils/eslint-config",
   "description": "Shared eslint config for your project",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "license": "MIT",
   "type": "module",
   "keywords": [
@@ -30,8 +30,8 @@
     "eslint-plugin-import-x": "^4.16.1",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-react": "^7.37.5",
-    "eslint-plugin-react-hooks": "^5.2.0",
-    "eslint-plugin-unicorn": "^59.0.1",
+    "eslint-plugin-react-hooks": "^6.1.1",
+    "eslint-plugin-unicorn": "^61.0.2",
     "globals": "^16.3.0"
   },
   "peerDependencies": {
