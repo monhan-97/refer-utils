@@ -1,0 +1,28 @@
+{
+  "name": "@refer-utils/types",
+  "description": "Shared typescript  utils for your project",
+  "version": "0.0.1",
+  "license": "MIT",
+  "type": "module",
+  "keywords": [
+    "type-utils"
+  ],
+  "author": "monhan-97",
+  "exports": {
+    "types": "./index.d.ts"
+  },
+  "files": [
+    "utils.ts",
+    "index.d.ts"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/monhan-97/refer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/monhan-97/refer.git/issues"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
+}

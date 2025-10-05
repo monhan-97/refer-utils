@@ -1,5 +1,5 @@
 {
-  "name": "refer",
+  "name": "refer-utils",
   "version": "1.0.0",
   "type": "module",
   "description": "",
@@ -7,14 +7,19 @@
   "workspaces": [
     "packages/*"
   ],
-  "scripts": {},
+  "scripts": {
+    "build": "pnpm run --filter=\"./packages/**/*\" build",
+    "upgrade-workspace": "pnpm --filter=\"./packages/**/*\" update --interactive --latest"
+  },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "devDependencies": {
     "@refer-utils/eslint-config": "workspace:*",
     "@refer-utils/prettier-config": "workspace:*",
-    "eslint": "^9.26.0",
-    "prettier": "^3.5.3"
+    "@types/node": "^24.6.2",
+    "eslint": "^9.37.0",
+    "prettier": "^3.6.2",
+    "typescript": "^5.9.3"
   }
 }
