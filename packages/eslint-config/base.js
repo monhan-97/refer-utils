@@ -153,6 +153,7 @@ const commonConfig = {
       },
     ],
     'getter-return': 'error',
+
     ...conflictRules('error'),
 
     // import-x
@@ -248,7 +249,7 @@ const tsEslintConfig = {
     },
   },
   rules: {
-    ...conflictRules('error'),
+    ...conflictRules('off'),
 
     // @typescript-eslint
     '@typescript-eslint/no-useless-constructor': 'warn',
