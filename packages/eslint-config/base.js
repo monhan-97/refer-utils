@@ -18,7 +18,7 @@ const conflictRules = (type = 'off') => {
 };
 
 const commonConfig = {
-  files: ['**/*.{ts,js,tsx}'],
+  files: ['**/*.{js,jsx,ts,tsx}'],
   ignores: [
     '.vscode/',
     '.idea/',
@@ -39,18 +39,8 @@ const commonConfig = {
   ],
   plugins: {
     unicorn: eslintPluginUnicorn,
-    '@typescript-eslint': tsEslintPlugin,
   },
   languageOptions: {
-    parser: tsEslintParser,
-    parserOptions: {
-      ecmaVersion: 'latest',
-      sourceType: 'module',
-      ecmaFeatures: {
-        jsx: true,
-      },
-      warnOnUnsupportedTypeScriptVersion: true,
-    },
     globals: { ...globals.node, ...globals.browser },
   },
   rules: {
@@ -163,8 +153,7 @@ const commonConfig = {
       },
     ],
     'getter-return': 'error',
-
-    ...conflictRules(),
+    ...conflictRules('error'),
 
     // import-x
     'import-x/first': 'error',
@@ -240,6 +229,26 @@ const commonConfig = {
       },
     ],
     indent: 'off',
+  },
+};
+
+const tsEslintConfig = {
+  files: ['**/*.{ts,tsx}'],
+  plugins: {
+    '@typescript-eslint': tsEslintPlugin,
+  },
+  languageOptions: {
+    parser: tsEslintParser,
+    globals: { ...globals.node, ...globals.browser },
+    parserOptions: {
+      ecmaFeatures: {
+        jsx: true,
+      },
+      warnOnUnsupportedTypeScriptVersion: true,
+    },
+  },
+  rules: {
+    ...conflictRules('error'),
 
     // @typescript-eslint
     '@typescript-eslint/no-useless-constructor': 'warn',
@@ -276,20 +285,13 @@ const commonConfig = {
   },
 };
 
-const specificJsConfig = {
-  files: ['**/*.js'],
-  rules: {
-    ...conflictRules('error'),
-  },
-};
-
 const eslintBaseJSConfig = [
   eslintConfigPrettier,
   importXFlagConfigs.warnings,
   importXFlagConfigs.errors,
   importXFlagConfigs.typescript,
   commonConfig,
-  specificJsConfig,
+  tsEslintConfig,
 ];
 
 export default eslintBaseJSConfig;

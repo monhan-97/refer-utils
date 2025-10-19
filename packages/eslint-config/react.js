@@ -1,8 +1,10 @@
-import reactHooksESLintPlugin from 'eslint-plugin-react-hooks';
+import reactHooks from 'eslint-plugin-react-hooks';
 import reactESLintPlugin from 'eslint-plugin-react';
 import jsxA11yESLintPlugin from 'eslint-plugin-jsx-a11y';
 
 const reactRecommendedFlatConfig = reactESLintPlugin.configs.flat.recommended;
+
+const reactHooksRecommendedFlatConfig = reactHooks.configs.flat.recommended;
 
 const reactJsxRuntimeFlatConfig = reactESLintPlugin.configs.flat['jsx-runtime'];
 
@@ -11,7 +13,7 @@ const reactESLintConfig = [
     files: ['**/*.{ts,tsx}'],
     plugins: {
       'jsx-a11y': jsxA11yESLintPlugin,
-      'react-hooks': reactHooksESLintPlugin,
+      'react-hooks': reactHooks,
       react: reactESLintPlugin,
     },
     settings: {
@@ -69,8 +71,8 @@ const reactESLintConfig = [
 
       ...reactRecommendedFlatConfig.rules,
       ...reactJsxRuntimeFlatConfig.rules,
+      ...reactHooksRecommendedFlatConfig.rules,
     },
-    extends: ['react-hooks/recommended'],
   },
 ];
 
