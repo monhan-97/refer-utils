@@ -17,6 +17,7 @@
   "devDependencies": {
     "@refer-utils/eslint-config": "workspace:*",
     "@refer-utils/prettier-config": "workspace:*",
+    "@refer-utils/types": "workspace:*",
     "@types/node": "^24.6.2",
     "eslint": "^9.37.0",
     "prettier": "^3.6.2",

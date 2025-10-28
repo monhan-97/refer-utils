@@ -1,7 +1,7 @@
 {
   "name": "@refer-utils/types",
   "description": "Shared typescript  utils for your project",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "license": "MIT",
   "type": "module",
   "keywords": [
@@ -9,11 +9,15 @@
   ],
   "author": "monhan-97",
   "exports": {
-    "types": "./index.d.ts"
+    ".": {
+      "types": "./index.d.ts"
+    },
+    "./module": "./module.d.ts"
   },
   "files": [
     "utils.ts",
-    "index.d.ts"
+    "index.d.ts",
+    "module.d.ts"
   ],
   "repository": {
     "type": "git",
